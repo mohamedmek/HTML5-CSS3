@@ -1,1 +1,35 @@
-<!DOCKTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Video</title>
+</head>
+<body>
+    <video src="./video/frozen.mp4" width="600" id="vid1" poster="./image/frozen.jpg"></video>
+    <div>
+        <button onclick="vid.play()">Play</button>
+        <button onclick="vid.pause()">Pause</button>
+        <button>&lt;&lt;</button>
+        <button>&lt;</button>
+        <button> &gt;</button>
+        <button> &gt;&gt;</button>
+        <button onclick="vid.muted = true;">Mute</button>
+        <button onclick="getVol()">TEST</button>
+        <input type="range" id="volRange" value="10">
+    </div>
+    <script>
+        var vid = document.getElementById("vid1");
+        function getVol() {
+            alert("The volume : "+vid.volume);
+        }
+        function setVol(){
+            var v = parseInt(document.getElementById("volRange").value);
+            v = v/100;
+            vid.volume = v ;
+            return v;
+        }
+    </script>
+</body>
+</html>
