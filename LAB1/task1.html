@@ -15,24 +15,19 @@
         <button>&lt;</button>
         <button> &gt;</button>
         <button> &gt;&gt;</button>
-        <button onclick="vid.muted = true;">Mute</button>
-        <button onclick="getVol()">TEST</button>
         <input type="range" id="volRange" value="10" onclick="setVol()">
-        <button onclick="setVol()">TEST</button>
+        <button onclick="vid.volume = 0;">Mute</button>
+
 
     </div>
     <script>
         var vid = document.getElementById("vid1");
-        function getVol() {
-            alert("The volume : "+vid.volume);
-        }
+        
         function setVol(){
             var v = parseInt(document.getElementById("volRange").value);
             vid.volume = v/100;
             return v;
-            console.log(v);
-            console.log(vid.volume);
-        }setVol()
+        }
     </script>
 </body>
 </html>
