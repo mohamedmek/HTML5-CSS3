@@ -78,7 +78,25 @@
         vid.currentTime = 10000000;
       });
 
-      
+
+      addEventListener("click", event => {
+            const btn = event.target;
+
+            // const fbtn = document.getElementById('fullscreen')
+             if (btn.tagName.toLowerCase() !== "button") return;
+            // if (btn.tagName.toLowerCase() !== "button") return;
+
+            const id = btn.textContent;
+
+            const div = document.getElementById('fullscreen');
+            
+            if (div.requestFullscreen) 
+            vid.requestFullscreen();
+            else if (div.webkitRequestFullscreen) 
+            vid.webkitRequestFullscreen();
+            else if (div.msRequestFullScreen) 
+            vid.msRequestFullScreen();
+        });
     </script>
 </body>
 </html>
