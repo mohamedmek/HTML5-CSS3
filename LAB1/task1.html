@@ -9,6 +9,11 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
     />
+    <style>
+      [data-my-attr]{
+        color: blueviolet;
+      }
+    </style>
 </head>
 <body>
     <video src="./video/frozen.mp4" width="600" id="vid1" poster="./image/frozen.jpg"></video>
@@ -41,7 +46,10 @@
     min="0"
     max="100"
     value="0" />
+    
+    
     <script>
+
         var vid = document.getElementById("vid1");
         const back5sec = document.querySelector("#back5sec");
         const forward5sec = document.querySelector("#forward5sec");
@@ -51,7 +59,6 @@
         
         vid.addEventListener("timeupdate",function(){
            let nowTime = parseInt(vid.currentTime) ;
-            // document.getElementById("playback").value;
             document.getElementById("playback").value = nowTime;
         })
         console.log(vid.currentTime);
@@ -78,17 +85,15 @@
         vid.currentTime = 10000000;
       });
 
-
-      addEventListener("click", event => {
+      fullscreen.addEventListener("click", event => {
             const btn = event.target;
 
-            // const fbtn = document.getElementById('fullscreen')
              if (btn.tagName.toLowerCase() !== "button") return;
-            // if (btn.tagName.toLowerCase() !== "button") return;
 
             const id = btn.textContent;
 
             const div = document.getElementById('fullscreen');
+
             
             if (div.requestFullscreen) 
             vid.requestFullscreen();
@@ -97,6 +102,9 @@
             else if (div.msRequestFullScreen) 
             vid.msRequestFullScreen();
         });
+
+
+
     </script>
 </body>
 </html>
