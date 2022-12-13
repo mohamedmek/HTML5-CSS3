@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task4</title>
+    <style>svg{border: solid red;}</style>
+</head>
+<body>
+    <svg width="600" height="600">
+        <line 
+            x1="0" 
+            y1="0"
+            x2="0"
+            y2="0"
+            style="stroke: red; stroke-width: 5"
+            id="theLine"
+        ></line>
+
+    </svg>
+   
+    <script>
+        var xy = 0;
+        const line = document.getElementById("theLine");
+        setInterval(
+            function() {
+                
+                xy +=100;
+                line.setAttribute("x2", xy);
+                line.setAttribute("y2", xy);        
+                
+                if(xy>650){
+                    alert("Animation ended!")
+                    location.reload();
+                }
+            }, 
+        1000);
+
+    </script>
+</body>
+</html>
