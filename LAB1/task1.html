@@ -27,7 +27,7 @@
         <button id="endTime"> &gt;&gt;</button>
         <input type="range" id="volRange" value="10" onclick="setVol()">
         <button onclick="vid.volume = 0;">Mute</button>
-        <button id="fullscreen"><i class="bi bi-arrows-fullscreen"></i>
+        <button onclick="openFullscreen()"><i class="bi bi-arrows-fullscreen"></i>
         </button>
 
     </div>
@@ -55,7 +55,6 @@
         const forward5sec = document.querySelector("#forward5sec");
         const startTime = document.querySelector("#startTime");
         const endTime = document.querySelector("#endTime");
-        const fullscreen = document.querySelector("#fullscreen");
         
         vid.addEventListener("timeupdate",function(){
            let nowTime = parseInt(vid.currentTime) ;
@@ -85,23 +84,12 @@
         vid.currentTime = 10000000;
       });
 
-      fullscreen.addEventListener("click", event => {
-            const btn = event.target;
 
-             if (btn.tagName.toLowerCase() !== "button") return;
 
-            const id = btn.textContent;
-
-            const div = document.getElementById('fullscreen');
-
-            
-            if (div.requestFullscreen) 
-            vid.requestFullscreen();
-            else if (div.webkitRequestFullscreen) 
-            vid.webkitRequestFullscreen();
-            else if (div.msRequestFullScreen) 
-            vid.msRequestFullScreen();
-        });
+      function openFullscreen() {
+        if (vid.requestFullscreen) {
+          vid.requestFullscreen();
+        } }
 
 
 
